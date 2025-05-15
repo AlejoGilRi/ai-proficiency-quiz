@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Competencia en IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="main-container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="card">
+                <div class="card-gradient"></div>
+                <div class="card-content">
+                    <div class="logo-container">
+                        <div class="logo-glow"></div>
+                        <div class="logo-inner">
+                            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 8.5C21 7.67 20.33 7 19.5 7H14.5C13.67 7 13 7.67 13 8.5V11.5C13 12.33 13.67 13 14.5 13H16.5V14.5C16.5 15.33 17.17 16 18 16C18.83 16 19.5 15.33 19.5 14.5V13H19.5C20.33 13 21 12.33 21 11.5V8.5Z" stroke="#F72585" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M11 8.5C11 7.67 10.33 7 9.5 7H4.5C3.67 7 3 7.67 3 8.5V11.5C3 12.33 3.67 13 4.5 13H6.5V14.5C6.5 15.33 7.17 16 8 16C8.83 16 9.5 15.33 9.5 14.5V13H9.5C10.33 13 11 12.33 11 11.5V8.5Z" stroke="#F72585" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="11" stroke="#F72585" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h1 class="title">Test de Competencia en IA</h1>
+                    <p class="subtitle">Descubre tu nivel de preparación para el mundo de la Inteligencia Artificial</p>
+                    
+                    <button class="btn btn-primary" onclick="startQuiz()">
+                        ¿TE ATREVES?
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="screen">
+            <div class="card">
+                <div class="card-content">
+                    <!-- Progress bar -->
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+
+                    <!-- Question header -->
+                    <div class="question-header">
+                        <h2 id="question-number">Pregunta 1 de 12</h2>
+                        <span id="dimension-badge" class="badge">Understanding AI</span>
+                    </div>
+
+                    <!-- Question text -->
+                    <h3 id="question-text" class="question-text"></h3>
+
+                    <!-- Options -->
+                    <div id="options-container" class="options-container"></div>
+
+                    <!-- Navigation buttons -->
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion()" disabled>
+                            ← ATRÁS
+                        </button>
+                        <button class="btn btn-primary" onclick="nextQuestion()">
+                            CONTINUAR →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="card">
+                <div class="card-content">
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <h2 class="loading-text">Analizando tus respuestas...</h2>
+                        <p class="loading-subtext">Generando tu perfil de IA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="card card-wide">
+                <div class="card-gradient"></div>
+                <div class="card-content">
+                    <h1 class="title">Resultados de tu Evaluación</h1>
+                    
+                    <!-- Level Badge -->
+                    <div class="level-badge-container">
+                        <span id="level-badge" class="level-badge">Nivel: Intermedio</span>
+                    </div>
+
+                    <div class="results-grid">
+                        <!-- Radar Chart -->
+                        <div class="chart-container">
+                            <canvas id="radar-chart" width="350" height="350"></canvas>
+                        </div>
+
+                        <!-- Dimension Cards -->
+                        <div id="dimension-cards" class="dimension-cards">
+                            <!-- Cards will be generated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Feedback Section -->
+                    <div class="feedback-section">
+                        <h2>Feedback Personalizado</h2>
+                        <p id="general-feedback"></p>
+                        <ul id="dimension-feedback" class="feedback-list">
+                            <!-- Feedback items will be generated dynamically -->
+                        </ul>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary" onclick="restartQuiz()">
+                            REINTENTAR
+                        </button>
+                        <button class="btn btn-primary" onclick="shareResults()">
+                            📢 ALARDEAR EN LINKEDIN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="data/questions.json"></script>
+    <script src="js/api.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
