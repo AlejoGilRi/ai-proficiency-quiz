@@ -1,0 +1,159 @@
+// Preguntas del Quiz de AI Proficiency
+const questions = [
+    // DIMENSIÓN 1: UNDERSTANDING AI (Comprensión de IA)
+    {
+        text: "¿Cómo son realmente las herramientas de IA que usas a diario?",
+        dimension: "Understanding AI",
+        options: [
+            { text: "Sistemas que imitan el pensamiento humano general", points: 2 },
+            { text: "Herramientas especializadas para tareas específicas", points: 4 },
+            { text: "Programas que siguen reglas predefinidas", points: 1 },
+            { text: "Tecnologías que aprenden pero con capacidades limitadas", points: 3 }
+        ]
+    },
+    {
+        text: "Cuando tu celular sugiere palabras mientras escribes, ¿qué está pasando?",
+        dimension: "Understanding AI",
+        options: [
+            { text: "Usa un diccionario predeterminado", points: 1 },
+            { text: "Analiza tu historial de escritura personal", points: 2 },
+            { text: "Aprendió patrones de millones de textos", points: 4 },
+            { text: "Combina reglas gramaticales con contexto", points: 3 }
+        ]
+    },
+    {
+        text: "¿Qué significa que una IA sea una 'caja negra'?",
+        dimension: "Understanding AI",
+        options: [
+            { text: "Sus procesos internos son complejos pero explicables", points: 2 },
+            { text: "No podemos ver cómo llegó a sus conclusiones", points: 4 },
+            { text: "Requiere conocimiento técnico para entenderla", points: 3 },
+            { text: "Funciona con algoritmos propietarios secretos", points: 1 }
+        ]
+    },
+    // DIMENSIÓN 2: USING & APPLYING AI (Uso y Aplicación)
+    {
+        text: "Al usar ChatGPT para escribir un correo profesional, ¿qué deberías hacer?",
+        dimension: "Using & Applying AI",
+        options: [
+            { text: "Revisar gramática pero mantener todo el contenido", points: 2 },
+            { text: "Usarlo como base y luego personalizar", points: 4 },
+            { text: "Editar solo si encuentras errores obvios", points: 1 },
+            { text: "Combinar su resultado con tu estilo personal", points: 3 }
+        ]
+    },
+    {
+        text: "¿Qué determina la calidad de respuestas de una IA conversacional?",
+        dimension: "Using & Applying AI",
+        options: [
+            { text: "La cantidad de palabras que uses", points: 1 },
+            { text: "Tu experiencia previa con la herramienta", points: 2 },
+            { text: "Qué tan claro y específico eres al pedir", points: 4 },
+            { text: "El contexto y ejemplos que proporciones", points: 3 }
+        ]
+    },
+    {
+        text: "¿Para qué tarea es más apropiado usar IA actualmente?",
+        dimension: "Using & Applying AI",
+        options: [
+            { text: "Análisis de datos con supervisión humana", points: 3 },
+            { text: "Generar ideas para una campaña creativa", points: 4 },
+            { text: "Tomar decisiones finales en procesos críticos", points: 1 },
+            { text: "Automatizar tareas repetitivas simples", points: 2 }
+        ]
+    },
+    // DIMENSIÓN 3: EVALUATING AI (Evaluación de IA)
+    {
+        text: "La IA te da información importante para tu trabajo. ¿Qué haces?",
+        dimension: "Evaluating AI",
+        options: [
+            { text: "Usarla si suena coherente", points: 1 },
+            { text: "Contrastar con una fuente adicional", points: 3 },
+            { text: "Verificar con fuentes confiables antes de usar", points: 4 },
+            { text: "Aplicar tu criterio profesional primero", points: 2 }
+        ]
+    },
+    {
+        text: "¿Qué es una 'alucinación' en IA generativa?",
+        dimension: "Evaluating AI",
+        options: [
+            { text: "Respuestas creativas pero imprecisas", points: 2 },
+            { text: "Cuando inventa información que parece real", points: 4 },
+            { text: "Errores ocasionales en el procesamiento", points: 1 },
+            { text: "Interpretaciones incorrectas del contexto", points: 3 }
+        ]
+    },
+    {
+        text: "Para elegir una herramienta de IA, ¿qué pregunta es clave?",
+        dimension: "Evaluating AI",
+        options: [
+            { text: "¿Tiene buenas reseñas de usuarios?", points: 2 },
+            { text: "¿Se actualiza frecuentemente?", points: 1 },
+            { text: "¿Es confiable para mi nivel de riesgo?", points: 4 },
+            { text: "¿Ofrece las funciones que necesito?", points: 3 }
+        ]
+    },
+    // DIMENSIÓN 4: AI ETHICS & RESPONSIBILITY (Ética y Responsabilidad)
+    {
+        text: "¿Por qué importan los sesgos en sistemas de IA?",
+        dimension: "AI Ethics & Responsibility",
+        options: [
+            { text: "Afectan la precisión de los resultados", points: 2 },
+            { text: "Pueden amplificar injusticias existentes", points: 4 },
+            { text: "Limitan las aplicaciones posibles", points: 1 },
+            { text: "Reflejan las limitaciones de los datos", points: 3 }
+        ]
+    },
+    {
+        text: "Al usar IA que pide tus datos personales, ¿qué consideras primero?",
+        dimension: "AI Ethics & Responsibility",
+        options: [
+            { text: "Los términos y condiciones del servicio", points: 3 },
+            { text: "Cómo usarán y protegerán mis datos", points: 4 },
+            { text: "Si la empresa es confiable", points: 2 },
+            { text: "Qué datos son realmente necesarios", points: 1 }
+        ]
+    },
+    {
+        text: "Si una IA en tu trabajo da resultados discriminatorios, ¿qué haces?",
+        dimension: "AI Ethics & Responsibility",
+        options: [
+            { text: "Documentar el problema para análisis", points: 2 },
+            { text: "Ajustar manualmente los resultados", points: 1 },
+            { text: "Reportarlo y buscar alternativas justas", points: 4 },
+            { text: "Investigar la causa del sesgo", points: 3 }
+        ]
+    }
+];
+
+// Mapeo de puntuación a respuestas (para compatibilidad con el backend)
+const answerMapping = {
+    0: 'a',
+    1: 'b',
+    2: 'c',
+    3: 'd'
+};
+
+// Feedback personalizado por nivel y dimensión
+const feedbackMatrix = {
+    'Understanding AI': {
+        'Básico': 'Estás empezando tu camino con la IA. Para avanzar: • Empieza identificando IA en tu día a día • Recursos: Videos de "IA explicada en 5 minutos" • Acción: Identifica 3 herramientas de IA que uses sin saberlo',
+        'Intermedio': 'Tienes buenas bases sobre IA. Para profundizar: • Explora la diferencia entre ChatGPT, DALL-E y Copilot • Lee sobre "cajas negras" • Investiga cómo funciona una herramienta que uses',
+        'Avanzado': 'Dominas los conceptos de IA. Próximos pasos: • Comparte tu conocimiento en LinkedIn • Prueba herramientas especializadas • Organiza una charla sobre IA'
+    },
+    'Using & Applying AI': {
+        'Básico': 'Es momento de experimentar más. Empieza con: • Herramientas gratuitas: ChatGPT, Grammarly • Caso práctico: Usa ChatGPT para escribir • Esta semana: Usa IA para 3 tareas diferentes',
+        'Intermedio': 'Ya usas IA efectivamente. Para optimizar: • Mejora tus prompts con más detalle • Herramientas especializadas: Notion AI, Canva Magic • Reduce 30% el tiempo en una tarea rutinaria',
+        'Avanzado': 'Eres usuario experto. Maximiza el impacto: • Integra flujos con Make o n8n • Crea plantillas de prompts • Diseña un proceso optimizado con IA'
+    },
+    'Evaluating AI': {
+        'Básico': 'Necesitas desarrollar más criterio sobre IA: • Practica el escepticismo saludable • Usa Perplexity.ai que muestra fuentes • Verifica 2 datos clave de cada respuesta IA',
+        'Intermedio': 'Evalúas bien la IA. Para ser más riguroso: • Compara resultados en ChatGPT, Claude y Gemini • Identifica sesgos en las respuestas • Crea un checklist de verificación',
+        'Avanzado': 'Excelente capacidad crítica. Comparte tu expertise: • Desarrolla criterios para tu organización • Documenta casos de alucinaciones • Crea guías de mejores prácticas'
+    },
+    'AI Ethics & Responsibility': {
+        'Básico': 'La ética en IA es fundamental. Primeros pasos: • Lee sobre casos reales de sesgo • Revisa permisos de apps de IA • Configura privacidad en 3 herramientas',
+        'Intermedio': 'Tienes conciencia ética. Profundiza con: • Casos de estudio en tu industria • Prueba "Model Cards" • Propón políticas éticas para tu equipo',
+        'Avanzado': 'Eres promotor de IA ética. Lidera el cambio: • Crea un comité de ética • Desarrolla protocolos • Escribe sobre ética de IA en LinkedIn'
+    }
+};
